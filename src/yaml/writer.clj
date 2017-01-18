@@ -51,7 +51,7 @@
             [(encode k) (encode v)])))
   clojure.lang.Keyword
   (encode [data]
-    (name data))
+    (subs (str data) 1))
   Object
   (encode [data] data)
   nil

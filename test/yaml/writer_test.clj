@@ -20,3 +20,10 @@
            (generate-string data :dumper-options {:scalar-style :folded})))
     (is (= "- {age: 33, name: jon}\n- {age: 44, name: boo}\n"
            (generate-string data :dumper-options {:scalar-style :plain})))))
+
+(deftest dump-keywords
+  (let [key (keyword "/var/lib/data")
+        value "/something/else"
+        data {key value}]
+    (is (= "{/var/lib/data: /something/else}\n"
+           (generate-string data)))))
